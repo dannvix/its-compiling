@@ -1,0 +1,12 @@
+<div class="content">
+  <div class="tag container">
+    <div class="counts"><%= tag_posts.count %> posts</div>
+    <div class="title"><h1><%= tag %></h1></a></div>
+    <ul>
+    <% tag_posts.each do |post| %>
+      <li><span class="datetime"><%= post[:datetime].strftime("%Y/%m/%d") %></span><a href="<%= post[:permalink] %>"><%= post[:title] %></a></li>
+    <% end %>
+    </ul>
+    <div style="clear: both;">&nbsp;</div>
+  </div>
+</div>

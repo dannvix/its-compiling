@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[it's compiling]]></title>
+  <link href="<%= ROOT_URL %>atom.xml" rel="self"/>
+  <link href="<%= ROOT_URL %>"/>
+  <updated><%= posts.first[:datetime].strftime("%FT%T%:z") %></updated>
+  <id><%= ROOT_URL%>/</id>
+  <author>
+    <name><![CDATA[Shao-Chung Chen]]></name>
+    <email><![CDATA[dannvix@gmail.com]]></email>
+  </author>
+  <generator uri="http://github.com/dannvix/its-compiling/"><![CDATA[it's compiling]]></generator>
+
+  <% posts.each do |post| %>
+  <entry>
+    <title type="html"><![CDATA[<%= post[:title] %>]]></title>
+    <link href="{{ site.url }}{{ post.url }}"/>
+    <updated><%= post[:datetime].strftime("%FT%T%:z") %></updated>
+    <id><%= post[:id] %></id>
+    <content type="html"><![CDATA[<%= post[:article] %>]]></content>
+  </entry>
+  <% end %>
+</feed>

@@ -1,0 +1,26 @@
+<div class="content">
+  <% posts.each do |post| %>
+  <div class="post container">
+    <div class="rel-date" data-timestamp="<%= post[:datetime].strftime("%s") %>"></div>
+    <div class="title"><h1><a href="<%= post[:shortlink] %>"><%= post[:title] %></h1></a></div>
+    <div class="article">
+      <%= post[:article] %>
+    </div>
+    <div class="tags">
+      <ul class="inline-list">
+        <% post[:tags].each do |tag| %>
+        <li><i class="icon-tag"></i> <a href="/tags/<%= tag %>"><%= tag %></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="metadata">
+      <ul class="inline-list">
+        <li><i class="icon-time"></i> <%= post[:datetime] %></li>
+        <li><i class="icon-comment"></i> 0 comments</li>
+        <li><i class="icon-link"></i> <a href="<%= post[:permalink] %>">Permalink</a></li>
+      </ul>
+    </div>
+    <div style="clear: both;">&nbsp;</div>
+  </div>
+  <% end %>
+</div>

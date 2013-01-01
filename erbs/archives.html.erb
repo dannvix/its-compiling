@@ -1,0 +1,15 @@
+<div class="content">
+  <% years.each do |year| %>
+  <% year_posts = posts.select{|post| post[:datetime].year == year } %>
+  <div class="year container">
+    <div class="counts"><%= year_posts.count %> posts</div>
+    <div class="title"><h1><%= year %></h1></a></div>
+    <ul>
+    <% year_posts.each do |post| %>
+      <li><span class="datetime"><%= post[:datetime].strftime("%Y/%m/%d") %></span><a href="<%= post[:permalink] %>"><%= post[:title] %></a></li>
+    <% end %>
+    </ul>
+    <div style="clear: both;">&nbsp;</div>
+  </div>
+  <% end %>
+</div>

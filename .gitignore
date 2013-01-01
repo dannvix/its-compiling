@@ -1,0 +1,7 @@
+.bundle
+.DS_Store
+.sass-cache
+.gist-cache
+public
+node_modules
+.swp
